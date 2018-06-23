@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+taras/__pycache__/
+tempi/migrations/
+
+*.bat
+db.sqlite3
