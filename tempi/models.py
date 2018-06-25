@@ -24,6 +24,9 @@ class Squadra(models.Model):
         ordering = ['nome', '-mf']
         verbose_name_plural = 'Squadre'
 
+    def __str__(self):
+        return '%s %s' % (self.mf, self.nome)
+
 
 class Barca(models.Model):
     nome = models.CharField(max_length=200)
@@ -31,6 +34,9 @@ class Barca(models.Model):
     class Meta:
         ordering = ['nome']
         verbose_name_plural = 'Barche'
+
+    def __str__(self):
+        return self.nome
 
 
 class Tempo(models.Model):
@@ -46,3 +52,6 @@ class Tempo(models.Model):
     class Meta:
         ordering = ['n', 'turno']
         verbose_name_plural = 'Tempi'
+
+    def __str__(self):
+        return '%s - %s %s - %s' % (self.squadra, self.tempo, self.turno, self.barca,)
