@@ -1,0 +1,32 @@
+{% extends 'tempi/base.html' %}
+
+{% block nav %}
+{# {% include 'spesa/nav.html' %} #}
+{% endblock %}
+
+{% block section %}
+
+
+<section>
+    <p>Gare Mattina</p>
+
+    {% for gara in gare%}
+        {% if gara.turno == "M" %}
+        <p>{{ gara }}</p>
+        {% endif %}
+
+    {% endfor %}
+
+    <p>Gare Pomeriggio</p>
+
+    {% for gara in gare%}
+        {% if gara.turno == "P" %}
+        <p>{{ gara }}</p>
+        {% endif %}
+
+    {% endfor %}
+
+</section>
+
+
+{% endblock section %}
