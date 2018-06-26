@@ -46,12 +46,12 @@ class Tempo(models.Model):
                              default='M'
                              )
     squadra = models.ForeignKey(Squadra, on_delete=models.CASCADE)
-    barca = models.ForeignKey(Barca, on_delete=models.CASCADE)
-    tempo = models.DurationField()
+    barca = models.ForeignKey(Barca, null=True, blank=True, on_delete=models.CASCADE)
+    tempo = models.DurationField(null=True, blank=True)
 
     class Meta:
         ordering = ['n', 'turno']
         verbose_name_plural = 'Tempi'
 
     def __str__(self):
-        return '%s - %s %s - %s' % (self.squadra, self.tempo, self.turno, self.barca,)
+        return '%i - %s - %s %s - %s' % (self.n, self.squadra, self.tempo, self.turno, self.barca,)
