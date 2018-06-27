@@ -7,47 +7,65 @@
 {% block section %}
 
 <section>
-
     <h1>Gare Mattina</h1>
-
     {% regroup gare_mattino by n as gare_n %}
-
-    {% for gara_n in gare_n%}
-    {{gara_n.grouper}}
-        {% for gara in gara_n.list %}
-
-            {% if gara.turno == "M" %}
-                <p>{{ gara }}</p>
-            {% endif %}
-
-        {% endfor %}
-
+    <div class="container">
+        {% for gara_n in gare_n%}
+        <div class="row">
+            <div class="col-1">
+                {{gara_n.grouper}}{{gara_n.list.0.squadra.mf}}
+            </div>
+            <div class="col-11">
+                <div class="container">
+                    {% for gara in gara_n.list %}
+                        <div class="row">
+                            <div class="col">
+                                {{gara.squadra.nome}}
+                            </div>
+                            <div class="col">
+                                {{gara.barca}}
+                            </div>
+                            <div class="col">
+                                {{gara.tempo}}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     {% endfor %}
-
-</section>
-
-<section>
-    <h1>Gare Pomeriggio</h1>
-
-    {% regroup gare_pomeriggio by n as gare_n %}
-
-    {% for gara_n in gare_n%}
-    {{gara_n.grouper}}
-        {% for gara in gara_n.list %}
-
-            {% if gara.turno == "P" %}
-                <p>{{ gara }}</p>
-            {% endif %}
-
-        {% endfor %}
-
-    {% endfor %}
-
-
-
+    </div>
 </section>
 
 
-
+<h1>Gare Pomeriggio</h1>
+{% regroup gare_pomeriggio by n as gare_n %}
+<div class="container">
+    {% for gara_n in gare_n%}
+    <div class="row">
+        <div class="col-1">
+            {{gara_n.grouper}}{{gara_n.list.0.squadra.mf}}
+        </div>
+        <div class="col-11">
+            <div class="container">
+                {% for gara in gara_n.list %}
+                    <div class="row">
+                        <div class="col">
+                            {{gara.squadra.nome}}
+                        </div>
+                        <div class="col">
+                            {{gara.barca}}
+                        </div>
+                        <div class="col">
+                            {{gara.tempo}}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+</section>
 
 {% endblock section %}
