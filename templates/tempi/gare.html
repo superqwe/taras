@@ -6,27 +6,48 @@
 
 {% block section %}
 
-
 <section>
-    <p>Gare Mattina</p>
 
-    {% for gara in gare%}
-        {% if gara.turno == "M" %}
-        <p>{{ gara }}</p>
-        {% endif %}
+    <h1>Gare Mattina</h1>
 
-    {% endfor %}
+    {% regroup gare_mattino by n as gare_n %}
 
-    <p>Gare Pomeriggio</p>
+    {% for gara_n in gare_n%}
+    {{gara_n.grouper}}
+        {% for gara in gara_n.list %}
 
-    {% for gara in gare%}
-        {% if gara.turno == "P" %}
-        <p>{{ gara }}</p>
-        {% endif %}
+            {% if gara.turno == "M" %}
+                <p>{{ gara }}</p>
+            {% endif %}
+
+        {% endfor %}
 
     {% endfor %}
 
 </section>
+
+<section>
+    <h1>Gare Pomeriggio</h1>
+
+    {% regroup gare_pomeriggio by n as gare_n %}
+
+    {% for gara_n in gare_n%}
+    {{gara_n.grouper}}
+        {% for gara in gara_n.list %}
+
+            {% if gara.turno == "P" %}
+                <p>{{ gara }}</p>
+            {% endif %}
+
+        {% endfor %}
+
+    {% endfor %}
+
+
+
+</section>
+
+
 
 
 {% endblock section %}
