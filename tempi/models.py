@@ -49,6 +49,14 @@ class Tempo(models.Model):
     barca = models.ForeignKey(Barca, null=True, blank=True, on_delete=models.CASCADE)
     tempo = models.DurationField(null=True, blank=True)
 
+    def crono(self):
+        if self.tempo:
+            minuti = int(self.tempo.seconds / 60)
+            secondi= self.tempo.seconds % 60
+            microsecondi = self.tempo.microseconds / 1000
+            tempo = '%02d:%02d.%03d' % (minuti, secondi, microsecondi)
+            return tempo
+
     class Meta:
         ordering = ['n', 'turno']
         verbose_name_plural = 'Tempi'
