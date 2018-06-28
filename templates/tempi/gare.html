@@ -11,22 +11,22 @@
     {% regroup gare_mattino by n as gare_n %}
     <div class="container">
         {% for gara_n in gare_n%}
-        <div class="row">
+        <div class="row align-items-center  mf_{{gara_n.list.0.squadra.mf}} riquadro">
             <div class="col-1">
                 {{gara_n.grouper}}{{gara_n.list.0.squadra.mf}}
             </div>
             <div class="col-11">
-                <div class="container">
+                <div class="container ">
                     {% for gara in gara_n.list %}
                         <div class="row">
                             <div class="col">
-                                {{gara.squadra.nome}}
+                                <strong>{{gara.squadra.nome}}</strong>
                             </div>
                             <div class="col">
                                 {{gara.barca}}
                             </div>
                             <div class="col">
-                                {{gara.tempo}}
+                                <strong>{{gara.tempo}}</strong>
                             </div>
                         </div>
                     {% endfor %}
@@ -37,27 +37,28 @@
     </div>
 </section>
 
+<section>
 
 <h1>Gare Pomeriggio</h1>
 {% regroup gare_pomeriggio by n as gare_n %}
 <div class="container">
     {% for gara_n in gare_n%}
-    <div class="row">
+    <div class="row align-items-center  mf_{{gara_n.list.0.squadra.mf}} riquadro">
         <div class="col-1">
             {{gara_n.grouper}}{{gara_n.list.0.squadra.mf}}
         </div>
         <div class="col-11">
-            <div class="container">
+            <div class="container ">
                 {% for gara in gara_n.list %}
                     <div class="row">
                         <div class="col">
-                            {{gara.squadra.nome}}
+                            <strong>{{gara.squadra.nome}}</strong>
                         </div>
                         <div class="col">
                             {{gara.barca}}
                         </div>
                         <div class="col">
-                            {{gara.tempo}}
+                            <strong>{{gara.tempo}}</strong>
                         </div>
                     </div>
                 {% endfor %}
