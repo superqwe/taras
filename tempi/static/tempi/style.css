@@ -1,0 +1,13 @@
+.riquadro{
+  border:           1px solid PaleGoldenRod ;
+  border-radius:    5px;
+  /* margin-bottom:    15px; */
+  /* padding:          0 15px 15px 15px; */
+}
+
+.mf_F{
+  background-color: pink;
+}
+.mf_M{
+  background-color: LightSkyBlue ;
+}
